@@ -12,6 +12,7 @@ abstract class ExportadorBase implements Exportador
      */
     protected array $exportaveis;
 
+    private string $path;
     private string $nomeDoArquivo;
 
     /**
@@ -20,6 +21,24 @@ abstract class ExportadorBase implements Exportador
     public function addDadosExportaveis(Exportavel $exportavel): void
     {
         $this->exportaveis[] = $exportavel;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPath(): string
+    {
+        return $this->path;
+    }
+
+    /**
+     * @param string $path
+     * @return ExportadorBase
+     */
+    public function setPath(string $path): ExportadorBase
+    {
+        $this->path = $path;
+        return $this;
     }
 
     /**
@@ -63,7 +82,7 @@ abstract class ExportadorBase implements Exportador
     {
         $this->formata();
 
-        $arquivo = fopen(getcwd() . DIRECTORY_SEPARATOR . $this->getNomeDoArquivo() . "." . $this->extensaoDoArquivo(), "x")
+        $arquivo = fopen($this->getPath() . $this->getNomeDoArquivo() . "." . $this->extensaoDoArquivo(), "x")
         or die("Não foi possivel criar o arquivo!");
         fwrite($arquivo, $this->gerar());
         fclose($arquivo);
