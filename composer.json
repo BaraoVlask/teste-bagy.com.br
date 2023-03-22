@@ -5,7 +5,8 @@
   "require": {
     "php": "^8.0",
     "ext-dom": "*",
-    "ext-simplexml": "*"
+    "ext-simplexml": "*",
+    "fakerphp/faker": "^1.21"
   },
   "license": "proprietary",
   "autoload": {
