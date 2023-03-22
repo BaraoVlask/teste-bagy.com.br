@@ -38,7 +38,14 @@ class ExportadorXml extends ExportadorBase
         foreach ($this->exportaveis as $exportavel) {
             $child = $this->XMLElement->addChild($exportavel->getTipo());
             foreach ($exportavel->dadosExportaveis() as $rotulo => $dado) {
-                $child->addChild($rotulo, $dado);
+                $child->addChild(
+                    str_replace(
+                        ' ',
+                        null,
+                        ucwords($rotulo)
+                    ),
+                    $dado
+                );
             }
         }
     }
