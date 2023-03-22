@@ -3,7 +3,9 @@
   "description": "Teste de desenvolvimento para minha candidatura na empresa bagy.",
   "type": "project",
   "require": {
-    "php": "^8.0"
+    "php": "^8.0",
+    "ext-dom": "*",
+    "ext-simplexml": "*"
   },
   "license": "proprietary",
   "autoload": {
