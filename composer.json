@@ -1,0 +1,24 @@
+{
+  "name": "baraovlask/teste-bagy.com.br",
+  "description": "Teste de desenvolvimento para minha candidatura na empresa bagy.",
+  "type": "project",
+  "require": {
+    "php": "^8.0",
+    "ext-dom": "*",
+    "ext-simplexml": "*",
+    "fakerphp/faker": "^1.21"
+  },
+  "license": "proprietary",
+  "autoload": {
+    "psr-4": {
+      "BaraoVlask\\TesteBagyComBr\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Guilherme Billig",
+      "email": "guilhermebillig@outlook.com"
+    }
+  ],
+  "minimum-stability": "stable"
+}
