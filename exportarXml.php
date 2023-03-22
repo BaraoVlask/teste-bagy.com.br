@@ -3,11 +3,11 @@ require_once('vendor/autoload.php');
 
 use BaraoVlask\TesteBagyComBr\Dto\PessoaFisica;
 use BaraoVlask\TesteBagyComBr\Dto\PessoaJuridica;
-use BaraoVlask\TesteBagyComBr\Exportadores\ExportadorJson;
+use BaraoVlask\TesteBagyComBr\Exportadores\ExportadorXml;
 
 $pessoas = require_once('pessoas.php');
 
-$exportadorXml = new ExportadorJson();
+$exportadorXml = new ExportadorXml();
 
 foreach ($pessoas['fisicas'] as $pessoa) {
     $pessoaFisica = new PessoaFisica();
@@ -20,13 +20,15 @@ foreach ($pessoas['fisicas'] as $pessoa) {
 }
 
 foreach ($pessoas['juridicas'] as $pessoa) {
-    $pessoaJuridica = new PessoaJuridica();
+    $pessoaJuridica
+        = new PessoaJuridica();
     $pessoaJuridica
         ->setId($pessoa['id'])
         ->setNome($pessoa['nome'])
         ->setNomeFantasia($pessoa['nomeFantasia'])
         ->setCnpj($pessoa['cnpj']);
-    $exportadorXml->addDadosExportaveis($pessoaJuridica);
+    $exportadorXml->addDadosExportaveis($pessoaJuridica
+    );
 }
 
 $exportadorXml->setPath(getcwd() . DIRECTORY_SEPARATOR)
